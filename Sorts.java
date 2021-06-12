@@ -14,21 +14,32 @@ public class Sorts {
         for(int j=l;j<r;j++){
             if(arr[j] < pivot){
                 i+=1;
-                swap(arr, i, j);
+                // Note that using swap() here causes a stack overflow error.
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
         // Move pivot
-        i++;
-        swap(arr, i, r);
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[r];
+        arr[r] = temp;
         return i + 1;
     }
 
-    public static void quickSort(int[] arr, int l, int r){
-        if (l >= r) return;
+    public static void quickSort(int[] arr){
+        qs(arr, 0, arr.length - 1);
+    }
+
+    public static void qs(int[] arr, int l, int r){
+        if (l >= r){
+            return;
+        } 
+
         int p = partition(arr, l, r);
 
-        quickSort(arr, l, p-1);
-        quickSort(arr, p+1, r);
+        qs(arr, l, p - 1);
+        qs(arr, p + 1, r);
     }
 
     public static void selectionSort(int[] arr){
@@ -62,7 +73,7 @@ public class Sorts {
         for(int x:arr) System.out.print(x + " ");
 
         System.out.println();
-        partition(arr, 0, 5);
+        quickSort(arr);
 
         System.out.println("Resulting array: ");
         for(int x:arr) System.out.print(x + " ");

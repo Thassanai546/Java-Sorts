@@ -14,7 +14,7 @@ public class Sorts {
         for(int j=l;j<r;j++){
             if(arr[j] < pivot){
                 i+=1;
-                // Note that using swap() here causes a stack overflow error.
+                // I found that using swap() here causes a stack overflow error. (bad recursion)
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -24,20 +24,22 @@ public class Sorts {
         int temp = arr[i + 1];
         arr[i + 1] = arr[r];
         arr[r] = temp;
-        return i + 1;
+
+        // return new index of the pivot, this position will not change after sorting the array
+        return i + 1;   
     }
 
     public static void quickSort(int[] arr){
+        // allows us to call method in main without providing L and R
         qs(arr, 0, arr.length - 1);
     }
 
     public static void qs(int[] arr, int l, int r){
-        if (l >= r){
+        if (l >= r){ 
+            // already sorted so we do nothing
             return;
-        } 
-
+        }
         int p = partition(arr, l, r);
-
         qs(arr, l, p - 1);
         qs(arr, p + 1, r);
     }
@@ -58,7 +60,7 @@ public class Sorts {
 
     public static void bubbleSort(int[] arr){
         for(int j=0;j<arr.length;j++){ //Repeat until no swaps needed
-            for(int i=0;i<arr.length;i++){
+            for(int i=0;i<arr.length-1;i++){
                 if(arr[i+1] < arr[i]){ //If neighbouring elements out of order, swap them
                     swap(arr, i+1, i);
                 }
@@ -73,7 +75,7 @@ public class Sorts {
         for(int x:arr) System.out.print(x + " ");
 
         System.out.println();
-        quickSort(arr);
+        selectionSort(arr);
 
         System.out.println("Resulting array: ");
         for(int x:arr) System.out.print(x + " ");

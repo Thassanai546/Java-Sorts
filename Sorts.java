@@ -20,7 +20,7 @@ public class Sorts {
                 arr[j] = temp;
             }
         }
-        // Move pivot
+        // Move pivot in between i and j, this is why we use i+1.
         int temp = arr[i + 1];
         arr[i + 1] = arr[r];
         arr[r] = temp;

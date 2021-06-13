@@ -67,17 +67,5 @@ public class Sorts {
             }
         }
     }
-
-    public static void main(String[] args) {
-        int[] arr = {64, 25, 12, 22, 11, 30};
-
-        System.out.println("Initial array: ");
-        for(int x:arr) System.out.print(x + " ");
-
-        System.out.println();
-        selectionSort(arr);
-
-        System.out.println("Resulting array: ");
-        for(int x:arr) System.out.print(x + " ");
-    }
+    
 }

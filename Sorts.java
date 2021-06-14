@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Sorts {
 
     public static void swap(int[] arr,int a,int b){
@@ -67,5 +69,37 @@ public class Sorts {
             }
         }
     }
-    
+
+    public static void countingSort(int[] arr){
+        int max = arr[0];
+        int j=1;
+        for(int x:arr) if(x>max) max = x;
+
+        // count array stores no. of occurrences of each 
+        // element in 'arr'
+        int[] count = new int[max+1];
+        for(int x:arr) count[x] += 1;
+
+        // for each element in count, sum up its value with the value
+        // of all previous elements
+        for(int i=0;i<count.length;i++){
+            count[j] += count[i];
+            j++;
+            if(j==count.length) break; // prevent out of bounds
+        }
+
+        // sorted sequence stored in output array
+        int[] output = new int[arr.length];
+        for(int i=arr.length-1;i>=0;i--){
+            int temp = count[arr[i]];
+            output[temp - 1] = arr[i];
+            count[arr[i]] = count[arr[i]] - 1; // subtract 1 from the value at count[arr[i]]
+        }
+        
+        //copy sorted array to input array
+        for(int i=0;i<arr.length;i++){
+            arr[i] = output[i];
+        }
+    }
+
 }

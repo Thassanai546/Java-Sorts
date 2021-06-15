@@ -1,4 +1,4 @@
-# Java-Sorts
+#  :stars: Java-Sorts :stars:
 This program shows the implementation of different types of sorting algorithms in Java.
 
 ### Bubble Sort

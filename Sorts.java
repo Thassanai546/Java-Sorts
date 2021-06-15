@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Sorts {
 
     public static void swap(int[] arr,int a,int b){
@@ -99,6 +97,17 @@ public class Sorts {
         //copy sorted array to input array
         for(int i=0;i<arr.length;i++){
             arr[i] = output[i];
+        }
+    }
+
+    public static void insertionSort(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            for(int j=i;j>0;j--){
+                if(arr[j]<arr[j-1]){ // as i increases, we add more values to our sort
+                    swap(arr,j,j-1);
+                    System.out.println("Swapped: " + arr[j] + " and " + arr[j-1] + " i = " + i);
+                } 
+            }
         }
     }
 

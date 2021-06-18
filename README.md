@@ -29,6 +29,13 @@ and so on until array is sorted.
 * Very popular algorithm that is often regarded as the best for sorting.
 * Divide and conquer algorithm.
 * Requires n(log n) time to sort n items
-* Can deal with huge lists of items
-
+* If implemented well, can be faster than merge sort.
+* Sub-arrays sorted recursively.
 > Partitions list of items into two sublists. A "Pivot" is used to do this. Elements in the first sublist are elements that are smaller than the pivot while all elements in the second sublist are larger than the pivot. This partitioning and arranging process is performed repeatedly on resulting sublists until the array is sorted.
+
+### Insertion Sort
+* Not great for large lists.
+* Adaptive (efficient for data sets that may already be partially sorted).
+* Stable, does not change relative order of elements with equal keys.
+* Online, can sort a list as it receives it.
+>When people sort cards in a hand, most use a method similar to insertion sort. As the algorithm runs a growing list of sorted values is created. Each iteration consumes one input value.

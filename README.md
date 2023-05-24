@@ -1,5 +1,5 @@
 #  :stars: Java-Sorts :stars:
-This program shows the implementation of different types of sorting algorithms in Java.
+This program shows the implementation of different types of sorting algorithms in Java. I built these to gain a better understanding of the algorithms and how they work.
 
 ### Bubble Sort
 * It is a comparison sort. 
